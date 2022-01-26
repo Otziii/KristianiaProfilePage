@@ -1,5 +1,6 @@
 package com.jorfald.profiledesign
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,8 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 
 class ProfileAdapter(
-    private val dataSet: List<User>
+    private val dataSet: List<User>,
+    private val clickCallback: (User) -> Unit
 ): RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder>() {
 
     inner class ProfileViewHolder(view: View): RecyclerView.ViewHolder(view) {
@@ -43,6 +45,14 @@ class ProfileAdapter(
         holder.image.setImageResource(user.pictureResource)
         holder.nameText.text = user.name
         holder.emailText.text = "E-mail: ${user.email}"
+
+        holder.container.setOnClickListener {
+            clickCallback(user)
+        }
+
+        holder.image.setOnClickListener {
+            Log.w("callback", "Image clicked")
+        }
     }
 
     override fun getItemCount(): Int {

@@ -1,10 +1,14 @@
 package com.jorfald.profiledesign
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -94,9 +98,52 @@ class ProfileListFragment : Fragment() {
         layoutManager = LinearLayoutManager(activity)
 //        layoutManager = GridLayoutManager(activity, 3, GridLayoutManager.VERTICAL, false)
 //        layoutManager = StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL)
-        adapter = ProfileAdapter(profiles)
+
+        // Eksempel:
+        val a = ProfileAdapter(
+            listOf()
+        ) { user ->
+
+            // Hva skal skje når callback blir kalt...? Bruk user
+
+        }
+
+
+
+        adapter = ProfileAdapter(profiles) { user ->
+            // Navigere til profilsiden
+
+            val bundle = Bundle()
+            bundle.putSerializable("user_object", user)
+
+            requireActivity().supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                add<ProfileFragment>(R.id.fragment_container, args = bundle)
+                addToBackStack(null)
+            }
+        }
 
         recyclerView.layoutManager = layoutManager
         recyclerView.adapter = adapter
+
+
+
+
+
+
+        // Threads
+
+        // Her får jeg ikke hente noe fra API / Nett
+        // Her får jeg ikke hente noe fra Database
+        Thread {
+            // Her får jeg ikke hente noe fra API / Nett
+            // Her får jeg  hente noe fra Database
+
+            // Her får jeg ikke lov til å endre viewet
+
+            requireActivity().runOnUiThread {
+                // Her får jeg lov til å endre viewet
+            }
+        }.start()
     }
 }

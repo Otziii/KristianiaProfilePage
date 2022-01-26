@@ -49,7 +49,8 @@ class ProfileFragment : Fragment() {
         commentsTextButton = view.findViewById(R.id.comments_text_button)
         followMeButton = view.findViewById(R.id.follow_button)
 
-        showingUser = User(
+        showingUser = arguments?.getSerializable("user_object") as? User
+            ?: User(
             "Øivind Jorfald",
             53,
             1425,
@@ -65,7 +66,6 @@ class ProfileFragment : Fragment() {
     }
 
     private fun setUser() {
-        //profileImage.setImageDrawable(loggedInUser.picture)
         profileImage.setImageResource(showingUser.pictureResource)
 
         nameText.text = showingUser.name
