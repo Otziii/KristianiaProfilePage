@@ -1,6 +1,5 @@
 package com.jorfald.profiledesign
 
-import android.graphics.drawable.Drawable
 import java.io.Serializable
 
 class User(
@@ -10,6 +9,5 @@ class User(
     val following: Int,
     val email: String,
     val phoneNumber: String,
-    val picture: Drawable?,
     val pictureResource: Int
 ) : Serializable

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 
@@ -51,15 +50,14 @@ class ProfileFragment : Fragment() {
 
         showingUser = arguments?.getSerializable("user_object") as? User
             ?: User(
-            "Øivind Jorfald",
-            53,
-            1425,
-            6,
-            "oivind@gmail.com",
-            "+47 951 95 951",
-            ResourcesCompat.getDrawable(resources, R.drawable.profile_pic2, null),
-            R.drawable.profile_pic2
-        )
+                "Øivind Jorfald",
+                53,
+                1425,
+                6,
+                "oivind@gmail.com",
+                "+47 951 95 951",
+                R.drawable.profile_pic2
+            )
 
         setUser()
         bindButtons()

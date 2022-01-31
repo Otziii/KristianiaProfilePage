@@ -38,7 +38,6 @@ class ProfileListFragment : Fragment() {
                 800,
                 "ola@norge.no",
                 "+47 909 99 909",
-                null,
                 R.drawable.profile_pic
             ),
             User(
@@ -48,7 +47,6 @@ class ProfileListFragment : Fragment() {
                 75,
                 "kari@norge.no",
                 "+47 808 88 808",
-                null,
                 R.drawable.profile_pic2
             ),
             User(
@@ -58,7 +56,6 @@ class ProfileListFragment : Fragment() {
                 800,
                 "ola@norge.no",
                 "+47 909 99 909",
-                null,
                 R.drawable.profile_pic
             ),
             User(
@@ -68,7 +65,6 @@ class ProfileListFragment : Fragment() {
                 75,
                 "kari@norge.no",
                 "+47 808 88 808",
-                null,
                 R.drawable.profile_pic2
             ),
             User(
@@ -78,17 +74,15 @@ class ProfileListFragment : Fragment() {
                 800,
                 "ola@norge.no",
                 "+47 909 99 909",
-                null,
                 R.drawable.profile_pic
             ),
             User(
-                "Kari Nordmann 3",
+                "Berit Nordmann",
                 1990,
                 780,
                 75,
                 "kari@norge.no",
                 "+47 808 88 808",
-                null,
                 R.drawable.profile_pic2
             )
         )
